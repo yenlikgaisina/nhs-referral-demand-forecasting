@@ -92,7 +92,7 @@ ARIMA produced tighter forecasts than LSTM on this dataset. The T&O waiting list
 
 ## What a Business Would Do With This
 
-An NHS capacity planner with a reliable 4 to 8 week referral forecast could:
+An NHS capacity planner with a reliable 6-month waiting-list forecast could:
 
 - **Pre-schedule clinic slots** — book radiographers, surgeons and admin staff weeks in advance rather than at short notice
 - **Reduce waiting times** — allocate capacity before bottlenecks form rather than after
@@ -106,7 +106,7 @@ An NHS capacity planner with a reliable 4 to 8 week referral forecast could:
 
 → **Decision enabled:** An NHS capacity planner with a reliable 6-month T&O referral forecast can pre-schedule clinic slots, radiographers, and theatre capacity weeks in advance — rather than reacting to backlogs after they form.
 
-→ **Time/cost saving:** Each unnecessary breach of the 18-week RTT target triggers regulatory escalation and agency staffing costs. A 2.4% MAPE forecast at 6-month horizon gives NHS Trusts actionable lead time to reallocate capacity before breaches occur.
+→ **Time/cost saving:** Each unnecessary breach of the 18-week RTT target triggers regulatory escalation and agency staffing costs. A validated 6-month horizon forecast gives NHS Trusts actionable lead time to reallocate capacity before breaches occur.
 
 → **Stakeholder:** NHS Operations Directors, Elective Recovery Programme leads, and Referral Management Centre teams — all of whom currently rely on extrapolation from last month's figures rather than a validated time series model.
 
@@ -116,7 +116,7 @@ An NHS capacity planner with a reliable 4 to 8 week referral forecast could:
 ```
 nhs-referral-demand-forecasting/
 |-- docs/
-|   +-- forecast_vs_actual.svg   (ARIMA forecast vs actual chart, 8-week horizon)
+|   +-- forecast_vs_actual.svg   (ARIMA forecast vs actual chart, 6-month horizon)
 |-- notebook/
 |   +-- nhs_referral_demand_forecasting.ipynb
 +-- README.md
