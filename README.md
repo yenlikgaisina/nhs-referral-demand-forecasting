@@ -54,6 +54,19 @@ Mean Absolute Percentage Error (MAPE) — chosen because it is interpretable by 
 
 ---
 
+
+## Key Technical Decisions
+
+**Why four models, not one?**
+A single model creates a false benchmark. Comparing ARIMA, SARIMA, ETS, and LSTM lets the data decide — and ARIMA's tight MAPE emerged as the clear winner for this dataset's seasonality structure. That comparison is itself the rigorous contribution: it rules out complexity for its own sake.
+
+**Why not a Transformer architecture?**
+NHS RTT data is monthly with ~48 post-COVID observations. Transformers need thousands of time points to outperform classical methods. LSTM was included as the deep learning baseline; ARIMA outperformed it on this data volume. Transformers were a conscious, documented exclusion — not an oversight.
+
+**Why MAPE as the evaluation metric?**
+MAPE is interpretable by non-technical stakeholders such as capacity planners and finance teams, and is scale-independent across specialties. Mean Absolute Error (MAE) in patients would be meaningless without context — a 10,000-patient MAE is very different for a 50,000-patient waiting list vs a 700,000-patient one. MAPE normalises for this.
+
+---
 ## Key Findings
 
 | Metric | Value |
@@ -88,6 +101,16 @@ An NHS capacity planner with a reliable 4 to 8 week referral forecast could:
 
 ---
 
+
+## Business Impact
+
+→ **Decision enabled:** An NHS capacity planner with a reliable 6-month T&O referral forecast can pre-schedule clinic slots, radiographers, and theatre capacity weeks in advance — rather than reacting to backlogs after they form.
+
+→ **Time/cost saving:** Each unnecessary breach of the 18-week RTT target triggers regulatory escalation and agency staffing costs. A 2.4% MAPE forecast at 6-month horizon gives NHS Trusts actionable lead time to reallocate capacity before breaches occur.
+
+→ **Stakeholder:** NHS Operations Directors, Elective Recovery Programme leads, and Referral Management Centre teams — all of whom currently rely on extrapolation from last month's figures rather than a validated time series model.
+
+---
 ## Repository Structure
 
 ```
